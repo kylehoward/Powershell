@@ -1,4 +1,4 @@
-﻿function DriveSpace {
+function DriveSpace {
 param( [string] $strComputer) 
 "$strComputer ---- Free Space (percentage) ----"
 

@@ -1,12 +1,9 @@
-﻿function DriveSpace {
+﻿$strComputer = hostname
+function DriveSpace {
 param( [string] $strComputer) 
 "$strComputer ---- Free Space (percentage) ----"
 
-# Does the server responds to a ping (otherwise the WMI queries will fail)
-
-$query = "select * from win32_pingstatus where address = '$strComputer'"
-$result = Get-WmiObject -query $query
-if ($result.protocoladdress) {
+ {
 
     # Get the Disks for this computer
     $colDisks = get-wmiobject Win32_LogicalDisk -computername $strComputer -Filter "DriveType = 3"
